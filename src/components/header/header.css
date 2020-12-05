@@ -1,0 +1,22 @@
+.my-nav {
+    background-color: #29487d;
+}
+
+.my-nav h3 {
+    color: white;
+    font-size: 40px;
+}
+
+.my-nav .text {
+    color: white;
+    font-size: 12px;
+}
+
+.form {
+    margin: 15px;
+    margin-left: 300px;
+}
+
+.my-nav .password {
+    margin-left: 55px;
+}

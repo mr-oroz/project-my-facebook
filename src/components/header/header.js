@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import "./header.css"
+import "./header.css";
 import Service from "../service";
 import Cookie from "js-cookie";
 import {withRouter} from "react-router-dom";
 
 const initialState = {
-    name: "",
+    username: "",
     password: ""
 }
 
@@ -31,10 +31,12 @@ class Header extends Component {
             }
         ).catch(async ({res}) => {
             // ошибканы кармоо
-            const data = await res.json()
-            for (let index in data) {
-                const error = data[index]
-                this.setState({error: error[0]})
+            if (res) {
+                const data = await res.json()
+                for (let index in data) {
+                    const error = data[index]
+                    this.setState({error: error[0]})
+                }
             }
         })
     }
@@ -47,19 +49,24 @@ class Header extends Component {
                         <h3 className='mt-4'>facebook
                             <a href=""></a>
                         </h3>
-                        <div className='offset-4 mb-4'>
-                            <form onSubmit={this.onSubmit}
-                                  className='text mt-1 ml-0'>
-                                <label htmlFor="Name">Электронный адрес или номер телефона</label>
-                                <label className='m-2' htmlFor="Password">Пароль</label>
-                            </form>
-                            <form>
-                                <input onChange={this.onChange} name='name' type="text" id='Name'
-                                       value={this.state.name}/>
-                                <input onChange={this.onChange} className='password' name='password' type="password"
-                                       id='Password' value={this.state.password}/>
+                        <div className='ml-auto mb-4'>
+                            <form className="form-row form-login text mt-4 ml-0" onSubmit={this.onSubmit}>
+                                <div className="col-7">
+                                    <label htmlFor="Login">Электронный адрес или номер телефона</label>
+                                    <input onChange={this.onChange} name='username' type="text" id='Login'
+                                           value={this.state.username}/>
+
+                                </div>
+                                <div className="col-4">
+                                    <label htmlFor="PasswordLogin">Пароль</label>
+                                    <input onChange={this.onChange} name='password' type="password"
+                                           id='PasswordLogin' value={this.state.password}/>
+
+                                </div>
                                 {this.state.error && <p>{this.state.error}</p>}
-                                <button className='ml-2 btn btn-primary'>Вход</button>
+                                <div className="col-1 mt-3">
+                                    <button type='submit' className='ml-2 btn btn-primary'>Вход</button>
+                                </div>
                             </form>
                         </div>
                     </div>

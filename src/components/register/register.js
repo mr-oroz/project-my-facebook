@@ -5,6 +5,7 @@ import {Form, Col, Button} from "react-bootstrap"
 
 
 const initialState = {
+    username: '',
     name: "",
     surname: '',
     password: "",
@@ -67,6 +68,12 @@ class Register extends Component {
                             </Form.Row>
                             <Form.Row>
                                 <Col className='col-7'>
+                                    <Form.Label htmlFor='Email'>Логин</Form.Label>
+                                    <Form.Control  onChange={this.onChange} name='username' type='text' id='UserName' value={this.state.username}/>
+                                </Col>
+                            </Form.Row>
+                            <Form.Row>
+                                <Col className='col-7'>
                                     <Form.Label htmlFor='Email'>эл. адрес</Form.Label>
                                     <Form.Control  onChange={this.onChange} name='email' type='text' id='Email' value={this.state.email}/>
                                 </Col>
@@ -83,9 +90,10 @@ class Register extends Component {
                                     <Form.Control  onChange={this.onChange}  name='password2' type='password' id='Password2' value={this.state.password2}/>
                                 </Col>
                             </Form.Row>
+                            <Button type="submit" variant="success">Регистрация</Button>
                         </Form>
                         <br></br>
-                        <Button variant="success">Регистрация</Button>
+
                     </div>
                 </div>
             </div>

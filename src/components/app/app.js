@@ -5,6 +5,7 @@ import Register from "../register/register";
 import Cookie from "js-cookie";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Service from "../service";
+import Home from "../home/home";
 
 class App extends Component {
     service = new Service()
@@ -33,12 +34,11 @@ class App extends Component {
         return (
             <Router>
                 <Switch>
-                    <div>
-                        <Route path exact={'/'}>
-                            <Header user={this.state.user} logout={this.logout}/>
-                        </Route>
-                        <Register/>
-                    </div>
+                    <Header user={this.state.user} logout={this.logout}/>
+                    <Register/>
+                    <Route exact path={"/home"}>
+                        <Home/>
+                    </Route>
                 </Switch>
             </Router>
         );

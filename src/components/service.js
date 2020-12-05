@@ -42,10 +42,10 @@ class Service {
     }
 
     createLogin = async (data) => {
-        return await this.request("/auth/token/login", data, "POST")
+        return await this.request("/auth/token/login/", data, "POST")
     }
     deleteLogin = async (data) => {
-        return await this.request("/auth/token/logout", {}, "POST")
+        return await this.request("/auth/token/logout/", {}, "POST")
     }
 }
 

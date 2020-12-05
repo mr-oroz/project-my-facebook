@@ -43,7 +43,7 @@ class Header extends Component {
         return (
             <nav className="my-nav">
                 <div className="container">
-                    <div className='row'>
+                    <div className='d-flex'>
                         <h3 className='mt-4'>facebook
                             <a href=""></a>
                         </h3>

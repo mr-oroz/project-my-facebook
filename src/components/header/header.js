@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import "./header.css";
 import Service from "../service";
 import Cookie from "js-cookie";
@@ -46,27 +46,39 @@ class Header extends Component {
             <nav className="my-nav">
                 <div className="container">
                     <div className='d-flex'>
-                        <h3 className='mt-4'>facebook
+                        <h3 className='mt-4'>It-Park
                             <a href=""></a>
                         </h3>
                         <div className='ml-auto mb-4'>
-                            <form className="form-row form-login text mt-4 ml-0" onSubmit={this.onSubmit}>
-                                <div className="col-7">
-                                    <label htmlFor="Login">Электронный адрес или номер телефона</label>
-                                    <input onChange={this.onChange} name='username' type="text" id='Login'
-                                           value={this.state.username}/>
-
-                                </div>
-                                <div className="col-4">
-                                    <label htmlFor="PasswordLogin">Пароль</label>
-                                    <input onChange={this.onChange} name='password' type="password"
-                                           id='PasswordLogin' value={this.state.password}/>
-
-                                </div>
-                                {this.state.error && <p>{this.state.error}</p>}
-                                <div className="col-1 mt-3">
-                                    <button type='submit' className='ml-2 btn btn-primary'>Вход</button>
-                                </div>
+                            <form onSubmit={this.onSubmit} className="form-row form-login text mt-4 ml-0">
+                                {this.props.user.username ?
+                                    <Fragment><p>{this.props.user.username}</p>
+                                        <div className='col-1 mr-0  '>
+                                            <button onClick={() => {
+                                                this.service.deleteLogin().then(() => {
+                                                    this.props.logout()
+                                                })
+                                            }} className="ml-2 btn btn-primary">Выход
+                                            </button>
+                                        </div>
+                                    </Fragment>
+                                    :
+                                    <Fragment>
+                                        <div className="col-7">
+                                            <label htmlFor="Login">Электронный адрес или номер телефона</label>
+                                            <input onChange={this.onChange} name='username' type="text" id='Login'
+                                                   value={this.state.username}/>
+                                        </div>
+                                        <div className="col-4">
+                                            <label htmlFor="PasswordLogin">Пароль</label>
+                                            <input onChange={this.onChange} name='password' type="password"
+                                                   id='PasswordLogin' value={this.state.password}/>
+                                        </div>
+                                        <div className="col-1 mt-3">
+                                            <button type='submit' className='ml-2 btn btn-primary'>Вход</button>
+                                        </div>
+                                    </Fragment>
+                                }
                             </form>
                         </div>
                     </div>

@@ -90,10 +90,8 @@ class Register extends Component {
                                     <Form.Control  onChange={this.onChange}  name='password2' type='password' id='Password2' value={this.state.password2}/>
                                 </Col>
                             </Form.Row>
-                            <Button type="submit" variant="success">Регистрация</Button>
+                            <Button className='mt-4' type="submit" variant="success">Регистрация</Button>
                         </Form>
-                        <br></br>
-
                     </div>
                 </div>
             </div>

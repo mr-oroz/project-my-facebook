@@ -1,16 +1,29 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Form, FormControl, Nav, Navbar, Button, Container} from "react-bootstrap";
+import {Link, withRouter} from "react-router-dom";
+
 
 class Home extends Component {
     render() {
         return (
-            <Link to={'/home'}>
-                <div>
-                    Добро пожаловать
-                </div>
-            </Link>
+            <Navbar onSubmit={this.onSubmit} bg="primary" variant="dark">
+                <Container>
+                    <Navbar.Brand href="#home">It-Park</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link href="#home">Главная</Nav.Link>
+                        <Nav.Link href="#features">Лента</Nav.Link>
+                    </Nav>
+                    <Form inline>
+                        <FormControl type="text" placeholder="Найти" className="mr-sm-2"/>
+                        <Button variant="outline-light">Найти</Button>
+                        <Link to={'/'}>
+                            <Button className='ml-2' variant="outline-light">Выход</Button>
+                        </Link>
+                    </Form>
+                </Container>
+            </Navbar>
         );
     }
 }
 
-export default Home;
+export default withRouter(Home);

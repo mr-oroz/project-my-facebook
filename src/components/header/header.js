@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import "./header.css";
 import Service from "../service";
 import Cookie from "js-cookie";
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 
 const initialState = {
     username: "",
@@ -49,6 +49,11 @@ class Header extends Component {
                         <h3 className='mt-4'>It-Park
                             <a href=""></a>
                         </h3>
+                        <Link to={'Home'}>
+                            <div className='mt-4 ml-4'>
+                                <h3 style={{color: "white"}}>Home</h3>
+                            </div>
+                        </Link>
                         <div className='ml-auto mb-4'>
                             <form onSubmit={this.onSubmit} className="form-row form-login text mt-4 ml-0">
                                 {this.props.user.username ?

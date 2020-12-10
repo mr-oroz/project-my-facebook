@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Form, FormControl, Nav, Navbar, Button, Container} from "react-bootstrap";
-import {Link, withRouter} from "react-router-dom";
+import {Link, NavLink, withRouter} from "react-router-dom";
 
 
 class Home extends Component {
@@ -10,13 +10,13 @@ class Home extends Component {
                 <Container>
                     <Navbar.Brand href="#home">It-Park</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Главная</Nav.Link>
+                        <NavLink to={"/"} className={"nav-link"}>Главная</NavLink>
                         <Nav.Link href="#features">Лента</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Найти" className="mr-sm-2"/>
                         <Button variant="outline-light">Найти</Button>
-                        <Link to={'/'}>
+                        <Link to={'/logout'}>
                             <Button className='ml-2' variant="outline-light">Выход</Button>
                         </Link>
                     </Form>

@@ -27,7 +27,7 @@ class Header extends Component {
                 Cookie.set('token', data["auth_token"]);
                 this.setState(initialState)
                 this.props.login()
-                this.props.history.push("/")
+                this.props.history.push("/home")
             }
         ).catch(async ({res}) => {
             // ошибканы кармоо
@@ -59,12 +59,7 @@ class Header extends Component {
                                 {this.props.user.username ?
                                     <Fragment><p>{this.props.user.username}</p>
                                         <div className='col-1 mr-0  '>
-                                            <button onClick={() => {
-                                                this.service.deleteLogin().then(() => {
-                                                    this.props.logout()
-                                                })
-                                            }} className="ml-2 btn btn-primary">Выход
-                                            </button>
+                                            <Link to={"/logout"} className="btn btn-primary">Logout</Link>
                                         </div>
                                     </Fragment>
                                     :

@@ -50,8 +50,8 @@ class Header extends Component {
                             <a href=""></a>
                         </h3>
                         <Link to={'Home'}>
-                            <div className='mt-4 ml-4'>
-                                <h3 style={{color: "white"}}>Home</h3>
+                            <div className='mt-4 ml-4 home'>
+                                <h3>Home</h3>
                             </div>
                         </Link>
                         <div className='ml-auto mb-4'>
@@ -59,7 +59,7 @@ class Header extends Component {
                                 {this.props.user.username ?
                                     <Fragment><p>{this.props.user.username}</p>
                                         <div className='col-1 mr-0  '>
-                                            <Link to={"/logout"} className="btn btn-primary">Logout</Link>
+                                            <Link to={"/logout"} className="btn btn-primary">Выйти</Link>
                                         </div>
                                     </Fragment>
                                     :

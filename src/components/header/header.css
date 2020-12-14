@@ -19,11 +19,6 @@
     width: 470px;
 }
 
- {
-    text-decoration: none;
-    color: white;
-}
-
 @media only screen and (max-width:800px ){
     .form-login {
 

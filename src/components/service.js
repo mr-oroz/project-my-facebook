@@ -1,7 +1,11 @@
 import Cookie from "js-cookie"
 
 class Service {
-    BASE_URL = "https://nurkadyr.pythonanywhere.com"
+    BASE_URL = "https://swapi.dev/api"
+
+    getProducts = (page = 1) => {
+        return fetch(`${this.BASE_URL}/people/?page=`+page).then((res) => res.json())
+    }
 
     request = async (url = "/", data = {}, method = "GET") => {
         const token = Cookie.get("token")
